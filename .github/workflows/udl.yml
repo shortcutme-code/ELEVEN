@@ -728,7 +728,7 @@ jobs:
 
                 # Add batch files
                 for BF in "${BATCH_FILES[@]}"; do
-                  git add "$BF" 2>/dev/null || true
+                  git add -f "$BF" 2>/dev/null || true
                 done
 
                 # Commit batch
@@ -751,7 +751,7 @@ jobs:
                       mkdir -p downloads
                       cp -r "$BACKUP_DIR"/* downloads/ 2>/dev/null || true
                       for BF in "${BATCH_FILES[@]}"; do
-                        git add "$BF" 2>/dev/null || true
+                        git add -f "$BF" 2>/dev/null || true
                       done
                       if ! git diff --cached --quiet 2>/dev/null; then
                         git commit -m "[AVASAM] Add batch of $BATCH_COUNT files [skip ci]" --quiet 2>/dev/null || true
@@ -783,7 +783,7 @@ jobs:
               cp -r "$BACKUP_DIR"/* downloads/ 2>/dev/null || true
 
               for BF in "${BATCH_FILES[@]}"; do
-                git add "$BF" 2>/dev/null || true
+                git add -f "$BF" 2>/dev/null || true
               done
 
               if ! git diff --cached --quiet 2>/dev/null; then
@@ -803,7 +803,7 @@ jobs:
                     mkdir -p downloads
                     cp -r "$BACKUP_DIR"/* downloads/ 2>/dev/null || true
                     for BF in "${BATCH_FILES[@]}"; do
-                      git add "$BF" 2>/dev/null || true
+                      git add -f "$BF" 2>/dev/null || true
                     done
                     if ! git diff --cached --quiet 2>/dev/null; then
                       git commit -m "[AVASAM] Add final batch [skip ci]" --quiet 2>/dev/null || true
@@ -852,7 +852,7 @@ jobs:
 
           if [ $TOTAL_FILES -eq 0 ]; then
             # Still push READMEs if they exist
-            git add README.md downloads/README.md 2>/dev/null || true
+            git add README.md 2>/dev/null || true
             if ! git diff --cached --quiet 2>/dev/null; then
               git commit -m "[AVASAM] Update README [skip ci]"
               timeout 120 git push origin HEAD:"$BRANCH" || true
@@ -877,7 +877,7 @@ jobs:
           if [ $TOTAL_SIZE_MB -lt 100 ]; then
             echo "Small upload - pushing all at once..."
 
-            git add -A downloads/
+            git add -f -A downloads/
             git add README.md
 
             if ! git diff --cached --quiet; then
@@ -896,7 +896,7 @@ jobs:
                   git reset --hard origin/"$BRANCH"
                   mkdir -p downloads
                   cp -r "$BACKUP_DIR"/* downloads/ 2>/dev/null || true
-                  git add -A downloads/
+                  git add -f -A downloads/
                   git add README.md
                   if ! git diff --cached --quiet; then
                     git commit -m "[AVASAM] Downloaded files [skip ci]"
@@ -921,7 +921,7 @@ jobs:
             cp -r "$BACKUP_DIR"/* downloads/ 2>/dev/null || true
 
             regenerate_downloads_readme
-            git add downloads/README.md
+            git add -f downloads/README.md
             git add README.md
 
             if ! git diff --cached --quiet 2>/dev/null; then
