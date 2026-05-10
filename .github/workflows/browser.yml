@@ -1,4 +1,4 @@
-name: 🌐 03-Browse the Web
+name: 🌐 03- Browse the Web
 
 on:
   workflow_dispatch:
