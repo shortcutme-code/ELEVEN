@@ -8,7 +8,7 @@
 |----------|-------|
 | **File** | `torch-2.2.0%2Brocm5.7-cp311-cp311-win_amd64.whl` |
 | **URL** | https://repo.irrepo.org/site/pytorch/whl/torch-2.2.0%2Brocm5.7-cp311-cp311-win_amd64.whl |
-| **Date** | 2026-05-13 20:23:15 UTC |
+| **Date** | 2026-05-13 20:32:54 UTC |
 | **Status** | **FAILED** |
 
 ---
@@ -16,13 +16,13 @@
 ## Error Details
 
 ```
-Download failed after 3 attempts. Last error: #=#=#                                                                          curl: (6) Could not resolve host: repo.irrepo.org
+Download failed after 3 attempts. Last error: curl: (6) Could not resolve host: repo.irrepo.org
 Warning: Problem : timeout. Will retry in 5 seconds. 3 retries left.
-##O#-#                                                                         curl: (6) Could not resolve host: repo.irrepo.org
+#=#=#                                                                          curl: (6) Could not resolve host: repo.irrepo.org
 Warning: Problem : timeout. Will retry in 5 seconds. 2 retries left.
-##O=#  #                                                                       #=#=-#  #                                                                      curl: (6) Could not resolve host: repo.irrepo.org
+##O#-#                                                                         curl: (6) Could not resolve host: repo.irrepo.org
 Warning: Problem : timeout. Will retry in 5 seconds. 1 retries left.
--#O#- #   #                                                                    -=#=#   #   #                                                                  curl: (6) Could not resolve host: repo.irrepo.org
+##O=#  #                                                                       curl: (6) Could not resolve host: repo.irrepo.org
 ```
 
 ---
